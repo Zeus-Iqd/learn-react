@@ -5,7 +5,7 @@
 let webpack = require('webpack');
 let path = require('path')
 module.exports = {
-	entry: './src/js/index.js',
+	entry: './src/js/root.js',
 	output: {
 		path: __dirname,
 		filename: 'dist/boundle.js',
