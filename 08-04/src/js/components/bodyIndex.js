@@ -1,6 +1,7 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import BodyChild from './bodyChild'
-
+import PropTypes from 'prop-types'
 class BodyIndex extends React.Component {
   constructor() {
     super()//调用基类的所有初始化方法
@@ -18,6 +19,16 @@ class BodyIndex extends React.Component {
   changeUserInfo() {
     console.log(this, 'this是什么')
     this.setState({ userName: '张文庆' })
+    // 第一种方法（原生）
+    // const submit = document.getElementById('submit')
+    // console.log(submit)
+    // console.log(ReactDOM.findDOMNode(submit))
+    // // submit.style.color = 'red'
+    // ReactDOM.findDOMNode(submit).style.color = 'red'
+
+    // 第二种方法（refs）
+   console.log(this.refs.domP) 
+   this.refs.domP.style.color = 'green'
   }
   handleChildValueChange(event) {
     console.log(event.target, 2220)
@@ -35,12 +46,20 @@ class BodyIndex extends React.Component {
         <p>{this.state.userName}</p>
         {/* props属于外来属性 */}
         {/* state属于模块滋生属性 */}
-        <p>{this.props.userName}{this.props.userId}</p>
-        <input type="button" value="按钮" onClick={this.changeUserInfo.bind(this)} />
-        <BodyChild handle={this.handleChildValueChange.bind(this)}/>
+        <p ref="domP">{this.props.userName}{this.props.userId}</p>
+        <input type="button" id="submit" value="按钮" onClick={this.changeUserInfo.bind(this)} />
+        <BodyChild {...this.props} a={22322} handle={this.handleChildValueChange.bind(this)} />
       </div>
     )
   }
 }
+
+BodyIndex.defaultProps = {
+  userId: 'hahha'
+}
+// BodyIndex.propTypes = {
+//   userId: PropTypes.any.isRequired,
+// }
+
 
 export default BodyIndex
