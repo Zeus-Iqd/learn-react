@@ -17,9 +17,9 @@ class BodyIndex extends React.Component {
   render() {
     // 注释
     /* 注释 */
-    setTimeout(() => {
-      this.setState({userName:'zhangwenqing'})
-    }, 3000)
+    // setTimeout(() => {
+    //   this.setState({userName:'zhangwenqing'})
+    // }, 3000)
     return (
       <div>
         <h2>这是主题内容部分</h2>
