@@ -23,7 +23,7 @@ export default class Root extends React.Component {
               <li><Link to="/list">About</Link></li>
             </ul>
             <Route exact path="/" component={Index} />
-            <Route path="/list" component={ComponentList} />
+            <Route path="/list" component={ComponentList00000000} />
           </div>
         </BrowserRouter>
       </div>
